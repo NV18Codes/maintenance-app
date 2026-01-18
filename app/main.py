@@ -39,9 +39,9 @@ app.add_middleware(
 
 # Serve invoices
 app.mount(
-    "/invoices",
+    "/app/uploads/invoices",
     StaticFiles(directory="app/uploads/invoices"),
-    name="invoices",
+    name="invoices"
 )
 # ------------------------
 # CREATE TABLES
