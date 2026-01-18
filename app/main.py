@@ -35,6 +35,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Serve invoices
+app.mount(
+    "/invoices",
+    StaticFiles(directory="app/uploads/invoices"),
+    name="invoices",
+)
 # ------------------------
 # CREATE TABLES
 # ------------------------

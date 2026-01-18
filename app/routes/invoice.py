@@ -61,12 +61,11 @@ def generate_invoice(
     pdf_filename = f"{invoice.invoice_number}.pdf"
     pdf_path = generate_invoice_pdf(context, pdf_filename)
 
-    invoice.pdf_path = pdf_path
+    invoice.pdf_path = f"/invoices/{pdf_filename}"
     db.commit()
 
     return {
-        "message": "Invoice generated successfully",
-        "invoice_number": invoice.invoice_number,
-        "amount": invoice.total_amount,
-        "pdf_path": pdf_path
-    }
+    "invoice_number": invoice.invoice_number,
+    "amount": invoice.total_amount,
+    "pdf_url": invoice.pdf_path
+}
