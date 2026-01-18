@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial; font-size: 12px; }
+        .header { display: flex; justify-content: space-between; }
+        .logo { height: 60px; }
+        .title { font-size: 20px; font-weight: bold; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #000; padding: 8px; text-align: left; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div>
+        <div class="title">{{ company.name }}</div>
+        <div>{{ company.address }}</div>
+        <div>Tax No: {{ company.tax_number }}</div>
+    </div>
+    {% if company.logo %}
+    <img src="{{ company.logo }}" class="logo">
+    {% endif %}
+</div>
+
+<hr>
+
+<h3>Invoice</h3>
+
+<p>
+<b>Invoice No:</b> {{ invoice.invoice_number }}<br>
+<b>Client:</b> {{ client_name }}<br>
+<b>Site:</b> {{ site_name }}
+</p>
+
+<table>
+<tr>
+    <th>Description</th>
+    <th>Amount</th>
+</tr>
+<tr>
+    <td>Maintenance Services</td>
+    <td>₹ {{ invoice.total_amount }}</td>
+</tr>
+</table>
+
+<h3>Total: ₹ {{ invoice.total_amount }}</h3>
+
+</body>
+</html>
